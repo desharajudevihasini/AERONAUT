@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {missionInitial,missionStep,beaconHit,objective,gates,rangeBeacons} from './src/mission.js';
+const m=missionInitial();const s={x:0,z:1250,alt:0,speed:0,roll:0,engine:false,airborne:false,crashed:false,landings:0,battery:false,fuel:false,brakes:true};
+assert.match(objective(m,s).action,/electrical/i);
+s.engine=true;s.battery=true;s.fuel=true;s.brakes=false;s.airborne=true;s.alt=75;
+missionStep(m,s,.016);assert.equal(m.stage,1);
+for(const p of gates){Object.assign(s,{x:p.x,z:p.z,alt:p.alt});missionStep(m,s,.016);}assert.equal(m.stage,2);assert.equal(m.gatesPassed,4);
+assert.equal(beaconHit(m,0),true);assert.equal(beaconHit(m,0),false);assert.equal(beaconHit(m,1),false);missionStep(m,s,.016);assert.equal(m.stage,3);
+s.landings=1;s.airborne=false;s.x=200;s.z=900;missionStep(m,s,.016);assert.equal(m.stage,3,'off-runway touchdown must not complete mission');s.x=0;s.z=0;missionStep(m,s,.016);assert.equal(m.stage,4);assert.equal(m.finished,true);
+assert(m.score>=3000);console.log('Mission progression, checkpoints, target de-duplication, landing, and scoring: PASS');

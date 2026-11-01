@@ -1,0 +1,93 @@
+/* AFTERBURNER visual system: screen-first presentation; technical controls remain in drawer. */
+:root{--ab-ink:#06101a;--ab-glass:rgba(7,18,29,.83);--ab-bright:#e9f2f2;--ab-mint:#b9f4da;--ab-cyan:#75e8ed;--ab-line:rgba(195,235,230,.23)}
+body{background:#050e15;overflow:hidden}button{transition:background .17s,border .17s,transform .17s}button:active{transform:scale(.97)}
+.intro{background:radial-gradient(ellipse at 74% 48%,#304962 0%,transparent 48%),linear-gradient(110deg,#061019 8%,#0b1826 49%,#1c3743);isolation:isolate}
+.intro::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 62px,#e9fff308 63px),repeating-linear-gradient(90deg,transparent 0 62px,#e9fff306 63px);mask-image:linear-gradient(90deg,transparent 10%,black 100%);opacity:.55}
+.intro:after{inset:auto -5% -20% auto;width:68vw;height:93vh;border:1px solid #c7eaf129;border-radius:50%;background:radial-gradient(ellipse,transparent 45%,#ddf4ea0a 46%,transparent 47%);clip-path:none;transform:rotate(-18deg)}
+.intro-content{width:min(1120px,90vw);max-width:none;margin-left:7vw}
+.intro .overline{color:#a5eddb;font:600 11px 'DM Mono',monospace;letter-spacing:.28em}
+.intro .large-mark{font:800 clamp(135px,21vw,330px)/.82 'Barlow Condensed',sans-serif;letter-spacing:-.068em;color:#eaf3f1;text-shadow:0 15px 80px #b6e7dd22}
+.intro .large-mark span{color:#8ac6c6}
+.intro h1{font-size:clamp(34px,5.2vw,75px);max-width:850px;margin:22px 0 12px;line-height:.91;font-weight:800;letter-spacing:-.015em}
+.intro h1 em{color:#bbf3d9}
+.intro .lead{background:none;border:0;padding:0;max-width:600px;font-size:14px;line-height:1.8;color:#d0dcdf}
+.intro .hero-jet{right:-1%;top:21%;width:min(59vw,910px);opacity:.62;filter:drop-shadow(8px 24px 32px #bff6e755);transform:rotate(-16deg)}
+.intro .hero-jet svg{filter:drop-shadow(0 0 30px #62f4c022)}
+.intro .primary{padding:18px 26px;background:#bdf4d8;border-color:#bdf4d8;font-weight:800;color:#071b24;box-shadow:0 0 48px #6dffd21c}
+.intro .secondary{padding:18px 26px;border-color:#7dceca;color:#e2f8ee}
+.intro .disclaimer{font-size:10px;max-width:610px;line-height:1.7}
+.sim .grain{background:linear-gradient(180deg,rgba(4,12,19,.57),transparent 20%,transparent 63%,rgba(2,9,15,.65)),linear-gradient(90deg,rgba(4,13,20,.48),transparent 24%,transparent 79%,rgba(2,8,14,.29));pointer-events:none}
+.sim header{z-index:45;height:72px;background:linear-gradient(180deg,rgba(3,13,22,.93),rgba(7,23,34,.68));border-color:rgba(222,255,247,.12);padding:0 2vw}
+.brand{font-size:27px;line-height:1;letter-spacing:.08em;color:#f4f9f7}
+.brand::before{content:'◈';color:var(--ab-cyan);margin-right:10px;font-family:Arial}
+.brand span{font-size:9px;letter-spacing:.12em;display:block;padding:6px 0 0 36px}
+.header-actions button{border:1px solid #e3fff21d;border-radius:3px;background:#0a24325c;color:#ddebea;font-weight:600;font-size:9px;padding:12px 10px}
+.header-actions button.selected{background:var(--ab-mint);color:#0b2630;border-color:var(--ab-mint)}
+.header-actions #connect{background:#0b3535;border-color:#499f95;color:#cbf9e5}
+.header-actions #autoDemo{border-color:#d6ad6f8a;color:#ffe6b6}
+.connection{font-size:9px;color:#adedd3;max-width:190px}
+/* Replace busy three-column dashboard with a focused cinematic HUD. */
+.side.left,.side.right,.bottom,#rangeHUD{display:none!important}
+.center-hud{top:26%;width:min(530px,36vw);color:#d1ffc7;opacity:.83;pointer-events:none;filter:drop-shadow(0 0 8px #0e341f75)}
+.center-hud .reticle{margin:83px auto 48px}
+.center-hud .hud-bottom{gap:36px}
+.center-hud .hud-bottom b{font:600 30px 'Barlow Condensed',sans-serif}
+.center-hud .hud-bottom div{font-size:10px;color:#d0ffd0}
+.center-hud .hud-top{font-size:10px;letter-spacing:.22em}
+.cockpit-frame{z-index:2;opacity:.9}
+.cockpit-frame .dashboard{bottom:-102px;left:20%;right:20%;height:220px;box-shadow:0 -5px 45px #000a}
+.cockpit-frame .canopy-top{border-width:10px;opacity:.38}
+.cockpit-frame .canopy-left,.cockpit-frame .canopy-right{width:14px;opacity:.78}
+#liveInput{z-index:30;position:absolute;top:auto;bottom:16px;left:50%;transform:translateX(-50%);font:600 10px 'DM Mono',monospace;border:1px solid #90ffcf50;background:#061a22d9;padding:11px 18px;border-radius:4px;max-width:min(560px,70vw);text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+#toast{z-index:50;bottom:82px;max-width:550px;border:1px solid #9bedd066;border-radius:4px;box-shadow:0 13px 30px #0008;background:#061822eb}
+#inputHUD{z-index:30;bottom:66px;white-space:nowrap;font-size:10px;max-width:55vw;background:#071c27bc;border-color:#61e6ae60}
+#afterburnerMission{position:absolute;z-index:20;top:98px;left:2vw;width:min(380px,32vw);padding:23px 24px 18px;background:linear-gradient(125deg,rgba(5,20,33,.92),rgba(7,28,37,.71));border:1px solid rgba(159,241,230,.23);border-left:3px solid var(--ab-cyan);backdrop-filter:blur(18px);box-shadow:0 22px 60px #0005}
+.mission-tag{display:flex;align-items:center;gap:9px;color:#80e6db;font:600 9px 'DM Mono',monospace;letter-spacing:.14em;line-height:1.4}.live-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#8bffd4;box-shadow:0 0 12px #6aefc6}.mission-score{margin-left:auto;color:#ffe7b5;white-space:nowrap;letter-spacing:0}
+.mission-name{font:800 clamp(23px,2.3vw,37px)/.97 'Barlow Condensed',sans-serif;color:#fff;letter-spacing:.035em;margin:18px 0 12px}
+.mission-action{font:700 13px/1.55 Inter,sans-serif;color:#c7f8e5;min-height:43px}
+.mission-why{color:#a7c5c9;font:12px/1.7 Inter,sans-serif;margin:14px 0 19px;padding-top:12px;border-top:1px solid #d1f5e31c}
+.mission-footer{display:flex;align-items:center;gap:7px;justify-content:space-between}#abProgress{display:flex;gap:5px;flex:1}#abProgress i{height:4px;background:#6d8190;width:18%;transition:background .3s}#abProgress i.active{background:#9dffda}
+#afterburnerMission button{font:700 9px 'DM Mono',monospace;color:#c5f4e3;border:1px solid #8bd1ca60;background:#0a2c36;padding:9px 10px;white-space:nowrap}
+#navigationUI{position:absolute;z-index:10;top:120px;right:2.2vw;width:145px;text-align:center;padding:13px 13px 17px;border:1px solid #dcf9e02b;background:#081b27b0;backdrop-filter:blur(10px);color:#c8f4df}
+#navLabel{display:block;color:#92e7dd;font:700 10px 'DM Mono',monospace;letter-spacing:.1em}#navNeedle{font:700 70px/1.3 Arial,sans-serif;color:#d6ffcb;transform-origin:50% 50%;transition:transform .2s}#navDistance{display:block;font:700 28px 'Barlow Condensed',sans-serif;letter-spacing:.08em}#navigationUI small{font:9px 'DM Mono',monospace;color:#9ab5bd;letter-spacing:.08em}
+#cockpitInfo{position:absolute;bottom:27px;left:2vw;z-index:18;display:flex;align-items:stretch;gap:0;backdrop-filter:blur(12px);background:#041521bb;border:1px solid #d4ece22b}
+#cockpitInfo>div{padding:12px 18px;border-right:1px solid #d4ece22b;color:#6adbd0;font:600 10px 'DM Mono',monospace;display:flex;flex-direction:column;gap:6px}#cockpitInfo>div:last-child{border:0}#cockpitInfo span{color:#869eac;letter-spacing:.09em;font-size:8px}#cockpitInfo b{color:#e2f8ee;font:600 10px 'DM Mono',monospace}
+.training-dock{display:none;position:absolute;z-index:35;bottom:94px;left:50%;transform:translateX(-50%);width:min(720px,70vw);padding:17px 20px;box-shadow:0 20px 80px #0009;border-radius:4px;border-color:#a9ddc955;background:rgba(5,20,30,.95)}
+.training-dock.show{display:block}.training-top{letter-spacing:.07em}.training-title{font-size:25px}.training-target{font-size:13px}.training-info{font-size:11px}.training-bottom button:last-child{background:var(--ab-mint);border-color:var(--ab-mint)}
+#launchCard{position:absolute;z-index:25;top:50%;left:50%;transform:translate(-50%,-50%);width:min(625px,90vw);background:linear-gradient(150deg,rgba(5,18,32,.96),rgba(9,42,51,.90));border:1px solid #d3ffeb4a;box-shadow:0 25px 120px #000b,0 0 70px #a3ffe20c;padding:38px 42px;backdrop-filter:blur(25px)}
+#launchCard .launch-eyebrow{font:700 11px 'DM Mono',monospace;letter-spacing:.2em;color:#8ce8d6}
+#launchCard h2{font:800 clamp(55px,7vw,94px)/.9 'Barlow Condensed',sans-serif;letter-spacing:-.035em;color:#f5f8ef;margin:20px 0 23px}#launchCard h2 em{font-style:normal;color:#b4f7db}
+#launchCard p{font:14px/1.85 Inter,sans-serif;color:#c7d9dc;max-width:520px}
+#launchCard .launch-actions{display:flex;gap:12px;margin:28px 0 23px;flex-wrap:wrap}#launchCard button{font:700 12px 'DM Mono',monospace;padding:15px 17px;background:var(--ab-mint);color:#05202a;border:1px solid var(--ab-mint)}#launchCard button+button{background:transparent;color:#e2f5e8;border-color:#96c3bf}#launchCard small{font:9px/1.6 'DM Mono',monospace;color:#86a7ad}
+.control-panel{background:#061622fa;border-left-color:#9dd7c45f;box-shadow:-30px 0 100px #000b;z-index:55}
+.control-panel .control-heading{position:sticky;top:-23px;background:#071a28;padding:8px 0;z-index:2}
+.midi-help{z-index:60;background:#061928f9}
+@media(max-width:1150px){#afterburnerMission{width:315px}#cockpitInfo>div{padding:10px}.training-dock{bottom:94px;width:73vw}.header-actions button{padding:9px 6px}.connection{max-width:120px}}
+@media(max-width:850px){.sim header{height:102px;align-items:flex-start;padding:10px 12px;flex-wrap:wrap}.header-actions{width:100%;overflow-x:auto}.brand{font-size:19px}.brand span{display:inline;font-size:8px;padding:0}.header-actions button{flex-shrink:0}.header-actions .connection{display:none}#afterburnerMission{top:114px;left:10px;width:260px;padding:14px}.mission-name{font-size:25px}.mission-action{font-size:11px;min-height:unset}.mission-why{font-size:10px;margin:6px 0 8px;padding-top:8px}#navigationUI{right:10px;top:114px;width:95px;padding:7px}#navNeedle{font-size:42px}#navDistance{font-size:19px}#cockpitInfo{display:none}#inputHUD{display:none}.training-dock{bottom:44px;width:95vw}#liveInput{bottom:5px;width:80vw}#launchCard{padding:22px}.control-panel{top:102px}.center-hud{top:30%;width:80vw}}
+#physicalDeck{padding:19px;background:#0d2633;border:1px solid #7dffcd32;margin:20px 0 14px;overflow:hidden}
+.deck-eyebrow{font:700 10px 'DM Mono',monospace;letter-spacing:.15em;color:#a6f4d4;margin-bottom:18px}
+.deck-top{display:grid;grid-template-columns:repeat(8,1fr);gap:8px}.deck-knob{text-align:center;color:#b2cbd1;font:9px 'DM Mono',monospace}.deck-knob i{display:block;width:27px;height:27px;line-height:25px;border:3px solid #829baa;background:#192d39;border-radius:50%;font-style:normal;color:#e5f5ec;margin:auto auto 8px}.deck-knob span{display:block;line-height:1.5}
+.deck-faders{display:flex;gap:16px;justify-content:center;margin:19px 0}.deck-fader{font:9px 'DM Mono',monospace;color:#b8d7d9;text-align:center;display:grid;gap:9px;justify-items:center}.deck-fader i{display:block;width:9px;height:42px;background:linear-gradient(#84d6c3 0 35%,#132c3a 36% 100%);border:2px solid #8696a2;position:relative}.deck-fader span{max-width:62px}
+.deck-keys{display:flex;height:88px;width:100%;gap:1px}.deck-key{position:relative;min-width:0;flex:1;border:1px solid #6b94a4!important;background:#d6e7e1!important;color:#052533!important;padding:0!important;border-radius:0 0 3px 3px}.deck-key.black-key{background:#162c39!important;color:#d3f6ed!important;flex:.8;height:60%;z-index:1}.deck-key.down{background:#83f3d1!important;color:#072b34!important}.deck-key b{position:absolute;bottom:7px;left:50%;transform:translateX(-50%);font:700 9px 'DM Mono',monospace}.deck-note{font:10px/1.7 Inter,sans-serif;color:#9dbbc5;margin-top:10px}
+@media(max-width:480px){.deck-knob i{width:19px;height:19px;line-height:16px}.deck-knob span,.deck-fader{font-size:7px}}
+#endMission{position:absolute;z-index:32;left:50%;top:50%;transform:translate(-50%,-50%);width:min(600px,90vw);padding:39px;background:linear-gradient(145deg,#061522f7,#17403af5);border:1px solid #b6f3d774;box-shadow:0 30px 120px #000b;text-align:center}
+#endMission .end-tag{font:700 10px 'DM Mono',monospace;letter-spacing:.19em;color:#8de3d3}#endMission h2{font:800 clamp(48px,7vw,78px)/.95 'Barlow Condensed',sans-serif;margin:16px 0}#endMission h2 em{font-style:normal;color:#aeffda}#endMission p{font:13px/1.8 Inter,sans-serif;color:#c0d9dc}
+.end-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}.end-stats div{background:#071e2b;border:1px solid #93d7ce3b;padding:13px 10px}.end-stats span{display:block;font:8px 'DM Mono',monospace;color:#96bfc8;margin-bottom:8px}.end-stats b{font:700 30px 'Barlow Condensed',sans-serif;color:#e1fff2}
+#endMission button{font:700 11px 'DM Mono',monospace;padding:13px 16px;color:#08212a;background:#b9f6d8;border:1px solid #b9f6d8;margin:4px}#endMission button+button{background:transparent;color:#d8f6e7;border-color:#86c8c4}
+
+/* v3: lesson-first ease and physical controller progress */
+.header-actions .difficulty-button{border:1px solid #a8ffd2;color:#c1ffdb;background:#184736;font-weight:800;letter-spacing:.09em}
+.mastery{font:600 10px/1.65 'DM Mono',monospace;color:#a8e9c5;border-top:1px solid #7ebdae44;padding-top:10px;margin-bottom:13px;letter-spacing:.02em}
+#afterburnerMission{width:min(395px,36vw)}
+#navigationUI{background:#071a26dd;border:1px solid #aaffd366;box-shadow:0 0 38px #81ffe120}
+@media(max-width:850px){#afterburnerMission{width:260px}.mastery{font-size:8px}}
+
+/* v4 flight-director controls: restrained and readable alongside cinematic play */
+#pilotBar{position:absolute;bottom:108px;right:2vw;z-index:24;width:min(305px,32vw);padding:16px 17px;background:linear-gradient(130deg,rgba(3,17,30,.92),rgba(10,34,48,.83));backdrop-filter:blur(15px);border:1px solid rgba(151,242,216,.38);box-shadow:0 15px 40px #0007;color:#e4f8f0;font:10px/1.5 'DM Mono',monospace}
+.pilot-head{display:flex;justify-content:space-between;align-items:center;gap:8px;color:#92dece;font-weight:700;letter-spacing:.06em}.pilot-head span:first-child{display:flex;gap:8px;align-items:center}.pilot-head b{font-size:9px;color:#ffe0a6}
+.pilot-controls{display:flex;gap:6px;flex-wrap:wrap;margin:13px 0}.pilot-controls button{background:#102b3b;border:1px solid #82edc756;color:#d2fcf1;font:700 9px 'DM Mono',monospace;padding:9px 10px;cursor:pointer}.pilot-controls button.active{background:#bdf4d8;color:#09212b}
+.pilot-mastery{margin-top:5px}.pilot-mastery span{display:flex;justify-content:space-between;color:#a0c9c9}.pilot-mastery b{color:#ffdfac}.pilot-mastery>div{margin-top:7px;background:#34505a;height:4px;overflow:hidden}.pilot-mastery i{height:100%;display:block;width:0;background:linear-gradient(90deg,#68b5de,#bdf4d8);transition:width .15s}
+#pilotBar small{display:block;margin-top:10px;color:#91b3ba;font-size:9px}
+#ringFlash{pointer-events:none;opacity:0;position:absolute;left:50%;top:17%;transform:translate(-50%,-10px);z-index:32;text-align:center;padding:24px 42px;background:radial-gradient(ellipse,#0c463877,transparent 76%);color:#d7ffe6;transition:opacity .2s,transform .2s}
+#ringFlash.show{opacity:1;transform:translate(-50%,0)}#ringFlash strong{font:800 34px 'Barlow Condensed',sans-serif;letter-spacing:.08em;display:block;text-shadow:0 0 30px #5ef8ba}#ringFlash span{font:10px 'DM Mono',monospace;letter-spacing:.08em}
+@media(max-width:900px){#pilotBar{right:10px;bottom:58px;width:260px;padding:10px}.pilot-controls button{padding:6px;font-size:8px}#ringFlash strong{font-size:22px}}

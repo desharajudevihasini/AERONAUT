@@ -1,0 +1,16 @@
+
+/* V7 VISUAL PASS: cinematic presentation, not extra popup panels */
+.intro {background:linear-gradient(90deg,rgba(3,11,21,.92) 0%,rgba(4,17,30,.85) 45%,rgba(5,20,33,.34) 100%),radial-gradient(ellipse at 81% 23%,rgba(244,169,96,.36),transparent 33%),linear-gradient(155deg,#060e1a,#27465c 56%,#687780);}
+.intro:before{content:'';position:absolute;inset:0;background:linear-gradient(170deg,transparent 40%,rgba(2,12,25,.5) 41%,rgba(3,15,26,.75) 70%,#061220 100%);clip-path:polygon(0 100%,0 78%,14% 78%,28% 65%,43% 77%,61% 48%,74% 64%,91% 33%,100% 53%,100% 100%);opacity:.8}
+.intro-content{max-width:940px}.intro .large-mark{font-size:clamp(125px,23vw,340px);letter-spacing:-.095em;color:#f4faf7;text-shadow:0 12px 100px #7edce044}.intro h1{font-size:clamp(36px,4.2vw,67px);max-width:720px;letter-spacing:-.01em}.intro h1 em{color:#b7f6da}.intro .hero-jet{filter:drop-shadow(0 24px 42px #45aabd88);transform:translateX(5vw) scale(1.11);transform-origin:left center}.intro .hero-jet svg{max-height:210px}
+.intro button.primary{background:#bff9dd;border-color:#bff9dd;color:#09222c;box-shadow:0 0 80px #7df5c844}.intro .lead{color:#d1e5ea;max-width:660px}
+.sim .grain{background:linear-gradient(0deg,rgba(0,11,20,.61),transparent 26%,transparent 85%,rgba(0,10,22,.2)),linear-gradient(90deg,rgba(0,11,20,.3),transparent 16%,transparent 86%,rgba(0,10,22,.35))}
+header{height:65px;background:#061827c7;border-bottom:1px solid #93b8bf44}header .brand{font-size:20px}header .header-actions button{font-size:9px;padding:10px 10px}#cinematicToggle{border-color:#d1f4d4;color:#d4ffe8;font-weight:800}#fullscreenToggle{color:#efffe6}
+.panel,#scienceHUD,#pilotBar,#flightLab,#blackboxHUD{border-radius:8px;box-shadow:0 18px 60px #0006}
+.cinematic-mode .side,.cinematic-mode .bottom,.cinematic-mode #scienceHUD,.cinematic-mode #blackboxHUD,.cinematic-mode #flightLab,.cinematic-mode #pilotBar,.cinematic-mode .training-dock,.cinematic-mode .cockpit-frame:not(.hidden){display:none!important}
+.cinematic-mode .center-hud{top:18%}.cinematic-mode .header-actions button:not(#cinematicToggle):not(#chaseView):not(#cockpitView):not(#fullscreenToggle),.cinematic-mode .connection{display:none!important}
+.cinematic-mode #afterburnerMission{position:absolute!important;top:81px!important;left:20px!important;bottom:auto!important;width:min(360px,40vw)!important;transform:none!important;background:#061827a6!important;border-radius:10px;backdrop-filter:blur(12px)}
+.cinematic-mode #navigationUI{right:25px;top:85px}
+.cinematic-mode #liveInput{opacity:.7}
+@media(max-width:1000px){header{height:auto;min-height:64px}header .brand span{display:none}.cinematic-mode #afterburnerMission{width:245px!important}}
+@media(prefers-reduced-motion:no-preference){.intro .hero-jet svg{animation:heroFloat 5.5s ease-in-out infinite}.intro:after{animation:heroGlow 7s ease-in-out infinite}}@keyframes heroFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}@keyframes heroGlow{50%{opacity:.38;transform:rotate(-16deg) scale(1.05)}}

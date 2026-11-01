@@ -1,0 +1,5 @@
+/* V8 high-altitude and clarity polish. */
+#highAltitude{color:#e4f6ff;border:1px solid #91bfd5;background:#123a50b5;box-shadow:0 0 22px #91d2ee22}
+#highAltitude:hover{background:#1b526b}
+#scene{display:block;filter:saturate(.95) contrast(1.045)}
+@media(max-width:1100px){#highAltitude{font-size:9px!important;padding:8px!important}}
